@@ -8,8 +8,8 @@ import Form from "./components/Form/Form";
 export default (
   <Switch>
     <Route exact path="/" component={Auth} />
-    <Route path="/dashboard/" component={Dashboard} />
-    <Route path="/post/" component={Post} />
-    <Route path="/form/" component={Form} />
+    <Route path="/dashboard" component={Dashboard} />
+    <Route path="/post/:id" component={Post} />
+    <Route path="/new" component={Form} />
   </Switch>
 );
