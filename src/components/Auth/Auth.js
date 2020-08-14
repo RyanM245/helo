@@ -5,6 +5,7 @@ import { loginUser } from "../../ducks/reducer";
 import './Auth.css'
 
 
+
 class Auth extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,8 @@ class Auth extends Component {
     };
   }
 
-  toggle = () => {
+  toggle = (e) => {
+    e.preventDefault();
     this.setState({
       newUser: !this.state.newUser,
     });
@@ -28,7 +30,8 @@ class Auth extends Component {
     });
   };
 
-  login = () => {
+  login = (e) => {
+      e.preventDefault();
     const { username, password } = this.state;
     axios
       .post("/auth/login", { username, password })
@@ -62,21 +65,26 @@ class Auth extends Component {
     return (
       <div className="auth">
         <div className="auth-container">
+          <h1 className='authTitle'>HELO</h1>
             {!newUser ?
         <form>
+            <div className = 'authInput'>
           <input onChange={(e) => this.changeHandler(e)} name="username" type="text" value={username} placeholder="Username..."/>
           <input onChange={(e) => this.changeHandler(e)} name="password" type="password" value={password} placeholder="Password..."/>
-          <div className = 'btn-container'>
+          </div>
+          <div className = 'authBtn'>
             <button onClick={this.login}>Login</button>
             <button onClick={this.toggle}>Signup</button>
           </div>
         </form>
          :
          <form>
+             <div className = 'authInput'>
          <input onChange={(e) => this.changeHandler(e)} name="username" type="text" value={username} placeholder="Username..."/>
          <input onChange={(e) => this.changeHandler(e)} name="password" type="password" value={password} placeholder="Password..."/>
          <input onChange={(e) => this.changeHandler(e)} name = 'profilePic' type='text' value={profilePic} placeholder="Profile URL..."/>
-         <div className = 'btn-container'>
+         </div>
+         <div className = 'authBtn'>
            <button onClick={this.register}>Register</button>
            <button onClick={this.toggle}>Whoops! I have an account.</button>
          </div>
