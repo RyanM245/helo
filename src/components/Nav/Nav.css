@@ -8,6 +8,29 @@
   color: white;
   background-image: linear-gradient(0deg, #ff7abe, #ff9770);
   box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.1), 5px 0 5px rgba(0, 0, 0, 0.2);
-  
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  justify-content: space-around;
+
+}
+.logout{
+    position: absolute;
+    bottom: 50px;
+    right: 30px; 
+    text-decoration: none;
+
 }
 
+img{
+    height: 60px;
+    width: auto;
+    position: absolute;
+    top: 20px;
+}
+.navHolder{
+    margin-left: 5px;   
+}
+.navDash{
+    margin-bottom: 50px;
+}

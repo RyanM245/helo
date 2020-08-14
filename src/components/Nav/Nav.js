@@ -19,9 +19,15 @@ class Nav extends React.Component {
     }
 
     render(){
+        console.log(this.props)
         return <nav className = 'nav'>
+            <img alt='Logo' src='https://www.logo.wine/a/logo/PlayStation/PlayStation-Logo.wine.svg' />
+            <div className = 'navHolder'>
+                <h1 className = "navDash"><Link to="/dashboard"> Dashboard</Link> </h1>
+                <h1><Link to="/new"> New Post</Link></h1>
+            </div>
 
-            <div onClick={this.logout}><Link to= '/'>Logout</Link></div>
+            <div className='logout' onClick={this.logout}><Link to= '/'>Logout</Link></div>
         </nav>
     }
 }

@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Dashboard = () => {
+class Dashboard extends Component {
+constructor(props){
+    super(props)
+    this.state = {
+        post:[],
+        search:"",
+        userposts: true
+
+    }
+}
+
+
+
+    render(){
     return <div> This is the Dashboard page</div>
+}
 }
 
 export default Dashboard;
