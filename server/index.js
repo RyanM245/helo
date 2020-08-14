@@ -27,7 +27,7 @@ massive({
     }).catch( err => console.log(err))
 
 
-app.post('./auth/login',ctrl.login)
+app.post('/auth/login',ctrl.login)
 app.post('/auth/register', ctrl.register)
 app.get('/auth/logout', ctrl.logout)
 app.get('/auth/user', ctrl.getUser)

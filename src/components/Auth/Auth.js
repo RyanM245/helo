@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { loginUser } from "../../ducks/reducer";
+import './Auth.css'
+
 
 class Auth extends Component {
   constructor(props) {
@@ -50,19 +52,20 @@ class Auth extends Component {
       })
       .catch((err) => {
         console.log(err);
-        alert("Register Failed⛈");
+        alert("Register Failed");
       });
   };
 
   render() {
+    console.log(this.props.location)
     const { username, password, profilePic, newUser } = this.state;
     return (
       <div className="auth">
         <div className="auth-container">
             {!newUser ?
         <form>
-          <input onChange={(e) => this.changeHandler(e)} name="username" type="text" value={username} placeholder="Username"/>
-          <input onChange={(e) => this.changeHandler(e)} name="password" type="password" value={password} placeholder="Password"/>
+          <input onChange={(e) => this.changeHandler(e)} name="username" type="text" value={username} placeholder="Username..."/>
+          <input onChange={(e) => this.changeHandler(e)} name="password" type="password" value={password} placeholder="Password..."/>
           <div className = 'btn-container'>
             <button onClick={this.login}>Login</button>
             <button onClick={this.toggle}>Signup</button>
@@ -70,9 +73,9 @@ class Auth extends Component {
         </form>
          :
          <form>
-         <input onChange={(e) => this.changeHandler(e)} name="username" type="text" value={username} placeholder="Username"/>
-         <input onChange={(e) => this.changeHandler(e)} name="password" type="password" value={password} placeholder="Password"/>
-         <input onChange={(e) => this.changeHandler(e)} name = 'profilePic' type='text' value={profilePic} placeholder="Profile URL"/>
+         <input onChange={(e) => this.changeHandler(e)} name="username" type="text" value={username} placeholder="Username..."/>
+         <input onChange={(e) => this.changeHandler(e)} name="password" type="password" value={password} placeholder="Password..."/>
+         <input onChange={(e) => this.changeHandler(e)} name = 'profilePic' type='text' value={profilePic} placeholder="Profile URL..."/>
          <div className = 'btn-container'>
            <button onClick={this.register}>Register</button>
            <button onClick={this.toggle}>Whoops! I have an account.</button>

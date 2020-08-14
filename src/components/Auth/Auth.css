@@ -1,0 +1,18 @@
+.Auth {
+    width: 100vw;
+    height: 100vh;
+    background-image: -webkit-linear-gradient(351deg, #ff70a6, #ff9770 40%, #ffd670 73%, #e9ff70);
+    background-image: -o-linear-gradient(351deg, #ff70a6, #ff9770 40%, #ffd670 73%, #e9ff70);
+    background-image: linear-gradient(99deg, #ff70a6, #ff9770 40%, #ffd670 73%, #e9ff70);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    color: white;
+  }
+  

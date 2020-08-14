@@ -5,6 +5,7 @@ module.exports = {
     const db = req.app.get("db");
     const { username, password } = req.body;
     const user = await db.check_user(username);
+    // console.log(user)
     if (!user[0]) {
       return res.status(401).send("Incorrect credentials");
     } else {
@@ -23,14 +24,14 @@ module.exports = {
   },
   register: async (req, res) => {
     const db = req.app.get("db");
-    const { username, password, profile_pic } = req.body;
+    const { username, password, profilePic } = req.body;
     const existingUser = await db.check_user(username);
     if (existingUser[0]) {
       return res.status(409).send("User already exists");
     }
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    const newUser = await db.create_user([username, password, hash]);
+    const newUser = await db.create_user([username, hash, profilePic]);
     req.session.user = {
       userId: newUser[0].user_id,
       username: newUser[0].username,
@@ -46,7 +47,7 @@ module.exports = {
     if (req.session.user) {
       res.status(200).send(req.session.user);
     } else {
-      res.sendStatus(404);
+      res.status(404).send(`Get User`);
     }
   },
 };
